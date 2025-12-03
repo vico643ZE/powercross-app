@@ -1,0 +1,1 @@
+import { prisma } from '@/lib/prisma'\n\nexport async function POST(req: Request) {\n  const data = await req.json()\n  const page = await prisma.page.create({ data })\n  return new Response(JSON.stringify(page), { status: 201 })\n}\n
