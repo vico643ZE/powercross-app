@@ -1,7 +1,7 @@
 {
   "framework": "nextjs",
   "buildCommand": "npm run build:vercel",
-  "installCommand": "npm install",
+  "installCommand": "npm install --no-audit --legacy-peer-deps",
   "outputDirectory": ".next",
   "env": {
     "PRISMA_SCHEMA_PATH": "prisma/schema.postgres.prisma"
