@@ -1,1 +1,14 @@
-/** @type {import('next').NextConfig} */\nconst nextConfig = {\n  experimental: {\n    typedRoutes: true,\n  },\n  images: {\n    remotePatterns: [\n      { protocol: 'https', hostname: '**' },\n      { protocol: 'http', hostname: '**' }\n    ]\n  }\n};\n\nexport default nextConfig;\n
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    typedRoutes: true,
+  },
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**' },
+      { protocol: 'http', hostname: '**' }
+    ]
+  }
+};
+
+export default nextConfig;
