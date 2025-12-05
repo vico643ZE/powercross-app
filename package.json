@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:vercel": "prisma migrate deploy --schema=prisma/schema.postgres.prisma && next build",
+    "build:vercel": "sh -lc 'if [ -n \"$DATABASE_URL\" ]; then prisma migrate deploy --schema=${PRISMA_SCHEMA_PATH:-prisma/schema.postgres.prisma}; else echo \"Skip prisma migrate deploy: DATABASE_URL not set\"; fi && next build'",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate --schema=${PRISMA_SCHEMA_PATH:-prisma/schema.prisma}"
