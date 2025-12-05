@@ -8,7 +8,7 @@
     "build:vercel": "prisma migrate deploy --schema=prisma/schema.postgres.prisma && next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate --schema=${PRISMA_SCHEMA_PATH:-prisma/schema.prisma}"
   },
   "dependencies": {
     "@auth/core": "^0.32.0",
