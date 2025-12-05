@@ -1,1 +1,0 @@
-@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n:root { color-scheme: light dark; }\n\nhtml, body, #__next { height: 100%; }\n\n.container-prose p { @apply text-slate-700 dark:text-slate-200; }\n
