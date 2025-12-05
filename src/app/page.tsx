@@ -1,13 +1,32 @@
-import LeadForm from '@/components/LeadForm'
+import Hero from '@/components/Hero'
+import Highlights from '@/components/Highlights'
+import CategoryGrid from '@/components/CategoryGrid'
+import Stories from '@/components/Stories'
+import Newsletter from '@/components/Newsletter'
+import BrandBar from './(home)/BrandBar'
 
 export default function HomePage() {
   return (
-    <section className="grid gap-8 py-8">
-      <div className="grid gap-4">
-        <h1 className="text-3xl font-bold tracking-tight">Build fast. Launch faster.</h1>
-        <p className="text-slate-600 max-w-prose">This starter ships with authentication, a simple CMS, lead capture, and analytics scaffolding so you can focus on your product.</p>
+    <div className="grid gap-10 py-8">
+      <Hero />
+      <div className="mx-auto max-w-6xl px-4">
+        <BrandBar />
       </div>
-      <LeadForm />
-    </section>
+      <div className="mx-auto max-w-6xl px-4">
+        <Highlights />
+      </div>
+      <div className="mx-auto max-w-6xl px-4">
+        <h2 className="mb-3 text-2xl font-semibold">Gamme PowerCross</h2>
+        <CategoryGrid />
+      </div>
+      <div className="mx-auto max-w-6xl px-4">
+        <h2 className="mb-3 text-2xl font-semibold">Stories</h2>
+        <Stories />
+      </div>
+      <div className="mx-auto max-w-6xl px-4">
+        <h2 className="mb-3 text-2xl font-semibold">Restez informé</h2>
+        <Newsletter />
+      </div>
+    </div>
   )
 }
