@@ -1,1 +1,36 @@
-'use client'\nimport { signIn } from 'next-auth/react'\nimport Link from 'next/link'\nimport { FormEvent, useState } from 'react'\n\nexport default function SignInPage() {\n  const [loading, setLoading] = useState(false)\n  const [error, setError] = useState<string | null>(null)\n\n  async function handleSubmit(e: FormEvent<HTMLFormElement>) {\n    e.preventDefault()\n    setLoading(true)\n    setError(null)\n    const form = e.currentTarget\n    const email = (form.elements.namedItem('email') as HTMLInputElement).value\n    const password = (form.elements.namedItem('password') as HTMLInputElement).value\n    const res = await signIn('credentials', { email, password, redirect: false })\n    setLoading(false)\n    if (res?.error) setError(res.error)\n    else window.location.href = '/'\n  }\n\n  return (\n    <div className=\"mx-auto max-w-sm\">\n      <h1 className=\"mb-4 text-2xl font-semibold\">Sign in</h1>\n      <form onSubmit={handleSubmit} className=\"grid gap-3\">\n        <input name=\"email\" type=\"email\" placeholder=\"you@example.com\" className=\"rounded border p-2\" required />\n        <input name=\"password\" type=\"password\" placeholder=\"••••••••\" className=\"rounded border p-2\" required />\n        {error && <p className=\"text-sm text-red-600\">{error}</p>}\n        <button disabled={loading} className=\"rounded bg-slate-900 px-4 py-2 text-white\">{loading ? 'Signing in…' : 'Sign in'}</button>\n      </form>\n      <p className=\"mt-4 text-sm\">No account? <Link className=\"underline\" href=\"/auth/signup\">Create one</Link></p>\n    </div>\n  )\n}\n
+'use client'
+
+import { signIn } from 'next-auth/react'
+import Link from 'next/link'
+import { FormEvent, useState } from 'react'
+
+export default function SignInPage() {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    setError(null)
+    const form = e.currentTarget
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value
+    const password = (form.elements.namedItem('password') as HTMLInputElement).value
+    const res = await signIn('credentials', { email, password, redirect: false })
+    setLoading(false)
+    if (res?.error) setError(res.error)
+    else window.location.href = '/'
+  }
+
+  return (
+    <div className="mx-auto max-w-sm">
+      <h1 className="mb-4 text-2xl font-semibold">Sign in</h1>
+      <form onSubmit={handleSubmit} className="grid gap-3">
+        <input name="email" type="email" placeholder="you@example.com" className="rounded border p-2" required />
+        <input name="password" type="password" placeholder="••••••••" className="rounded border p-2" required />
+        {error && <p className="text-sm text-red-600">{error}</p>}
+        <button disabled={loading} className="rounded bg-slate-900 px-4 py-2 text-white">{loading ? 'Signing in…' : 'Sign in'}</button>
+      </form>
+      <p className="mt-4 text-sm">No account? <Link className="underline" href="/auth/signup">Create one</Link></p>
+    </div>
+  )
+}
