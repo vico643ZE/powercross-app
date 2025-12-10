@@ -11,6 +11,8 @@ export const metadata = {
   description: 'Découvrez la gamme de motos électriques PowerCross',
 }
 
+import ModelsClient from './ModelsClient'
+
 export default function ModelsPage({ searchParams }: { searchParams?: { min?: string; max?: string; autonomy?: string } }) {
   const min = searchParams?.min ? parseInt(searchParams.min) : undefined
   const max = searchParams?.max ? parseInt(searchParams.max) : undefined
@@ -23,7 +25,26 @@ export default function ModelsPage({ searchParams }: { searchParams?: { min?: st
   })
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div>
+      {/* Hero */}
+      <section className="relative isolate overflow-hidden bg-black text-white">
+        <div className="absolute inset-0 -z-10">
+          <Image src="https://images.unsplash.com/photo-1627662057412-631f5e8ffd71?q=80&w=2000&auto=format&fit=crop" alt="PowerCross Off-road" fill className="object-cover opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
+        </div>
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+          <nav className="mb-4 text-sm text-white/80">
+            <Link href="/" className="hover:underline">Accueil</Link> <span className="mx-1">›</span> <span>Nos modèles</span>
+          </nav>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-5xl">Nos modèles</h1>
+          <p className="mt-3 max-w-2xl text-slate-200">100% électriques. Conçues pour performer sur chaque terrain.</p>
+        </div>
+      </section>
+
+      {/* Content */}
+      <div className="mx-auto max-w-6xl px-4 py-8">
+        <ModelsClient models={MODELS} />
+      </div>
       <h1 className="mb-6 text-3xl font-bold">Nos modèles</h1>
       <form className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <input name="min" type="number" placeholder="Prix min (€)" className="rounded border p-2" defaultValue={min} />
