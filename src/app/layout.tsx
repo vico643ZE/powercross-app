@@ -28,6 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <nav className="mx-auto flex max-w-6xl items-center justify-between p-4">
             <Link href="/" className="font-semibold">{process.env.NEXT_PUBLIC_BRAND_NAME ?? 'Powercross'}</Link>
             <div className="flex items-center gap-4 text-sm">
+              <Link href="/models">Nos modèles</Link>
               <Link href="/blog">Blog</Link>
               <Link href="/admin">Admin</Link>
               <Link href="/auth/signin">Sign in</Link>
