@@ -23,9 +23,9 @@ export default function Hero() {
             Découvrez la nouvelle génération PowerCross — autonomie, couple instantané, design radical. Prêtes pour la route comme pour chaque terrain.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link href="#range" className="rounded bg-[#ff6a00] px-5 py-2.5 font-medium text-white hover:bg-[#ff5500]">Voir la gamme</Link>
-            <Link href="#dealers" className="rounded border border-white/30 px-5 py-2.5 font-medium hover:bg-white/10">Trouver un revendeur</Link>
-            <Link href="#configure" className="rounded border border-white/30 px-5 py-2.5 font-medium hover:bg-white/10">Configurer</Link>
+            <Link href="/models" className="rounded bg-[#ff6a00] px-5 py-2.5 font-medium text-white hover:bg-[#ff5500]">Voir la gamme</Link>
+            <Link href="/models" className="rounded border border-white/30 px-5 py-2.5 font-medium hover:bg-white/10">Découvrir les modèles</Link>
+            <Link href="/models" className="rounded border border-white/30 px-5 py-2.5 font-medium hover:bg-white/10">Voir les spécifications</Link>
           </div>
         </div>
       </div>
